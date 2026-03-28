@@ -14,14 +14,13 @@ color:#fff;
 text-align:center;
 }
 
-/* Bild oben */
 .hero-img{
 width:100%;
 max-height:500px;
 object-fit:cover;
+display:block;
 }
 
-/* Text */
 .hero-text{
 padding:30px 20px;
 background:#000;
@@ -31,16 +30,19 @@ h1{
 font-size:26px;
 font-weight:300;
 line-height:1.5;
+margin:10px 0;
 }
 
 .dates{
 margin-top:10px;
 opacity:0.8;
+font-size:18px;
 }
 
-/* Inhalt */
 .content{
-padding:30px 20px;
+padding:30px 20px 50px;
+max-width:900px;
+margin:auto;
 }
 
 .text{
@@ -50,75 +52,67 @@ margin-bottom:10px;
 
 .text-tr{
 font-size:16px;
-opacity:0.8;
-margin-bottom:30px;
+opacity:0.85;
+margin-bottom:20px;
+line-height:1.6;
 }
 
-/* Playlist */
+.music-note{
+font-size:14px;
+opacity:0.7;
+margin-bottom:20px;
+}
+
+.playlist-link{
+display:inline-block;
+margin-bottom:30px;
+padding:12px 18px;
+background:#2d2d2d;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+}
+
 iframe{
 width:100%;
-max-width:900px;
 height:400px;
 border:none;
 border-radius:12px;
 margin-bottom:40px;
+background:#111;
 }
 
-/* Gästebuch */
-.guestbook{
-max-width:600px;
-margin:auto;
-text-align:left;
+@media (max-width:600px){
+h1{
+font-size:22px;
 }
-
-input, textarea{
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:6px;
-border:none;
+iframe{
+height:240px;
 }
-
-button{
-padding:10px;
-width:100%;
-background:#444;
-color:white;
-border:none;
-border-radius:6px;
-cursor:pointer;
 }
-
-.entry{
-background:#1a1a1a;
-padding:10px;
-margin-top:10px;
-border-radius:6px;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ✅ BILD DIREKT -->
-<img src="deryam.jpg" class="hero-img">
+<!-- Bild -->
+<img src="deryam.jpg" class="hero-img" alt="Derya Takmaz">
 
+<!-- Text -->
 <div class="hero-text">
-
-🕯️
+<div style="font-size:28px;">🕯️</div>
 
 <h1>
 Derya Takmaz.<br>
-Mama, Tochter, Schwester & die beste Freundin die man sich hätte vorstellen können.
+Mama, Tochter, Schwester &amp; die beste Freundin die man sich hätte vorstellen können.
 </h1>
 
 <div class="dates">
 29.03.1985 – 01.12.∞
 </div>
-
 </div>
 
+<!-- Inhalt -->
 <div class="content">
 
 <div class="text">
@@ -129,40 +123,22 @@ Diese Lieder erinnern uns an dich.
 Hep bizimlesin. Hep seninleyiz. Seni çok seviyor ve özlüyoruz.
 </div>
 
-<iframe src="https://www.youtube.com/embed/videoseries?list=PLLc0pOYb3bGVwp-V3SKe5pe0AHnJnpan0&autoplay=1&mute=1" allowfullscreen></iframe>
-
-<div class="guestbook">
-
-<h2>Derya’ya söylemek istedikleriniz</h2>
-
-<input type="text" id="name" placeholder="Dein Name">
-<textarea id="message" placeholder="Deine Nachricht"></textarea>
-
-<button onclick="addEntry()">Nachricht hinterlassen</button>
-
-<div id="entries"></div>
-
+<div class="music-note">
+🎵 Auf dem Handy sieht man die komplette Liste besser über den Button unten.
 </div>
 
+<!-- Button -->
+<a class="playlist-link" href="https://youtube.com/playlist?list=PLLc0pOYb3bGVwp-V3SKe5pe0AHnJnpan0" target="_blank">
+Playlist auf YouTube öffnen
+</a>
+
+<!-- Player -->
+<iframe
+src="https://www.youtube.com/embed/videoseries?list=PLLc0pOYb3bGVwp-V3SKe5pe0AHnJnpan0"
+allowfullscreen>
+</iframe>
+
 </div>
-
-<script>
-function addEntry(){
-let name = document.getElementById("name").value;
-let message = document.getElementById("message").value;
-
-if(name === "" || message === "") return;
-
-let entry = document.createElement("div");
-entry.className = "entry";
-entry.innerHTML = "<strong>" + name + "</strong><br>" + message;
-
-document.getElementById("entries").prepend(entry);
-
-document.getElementById("name").value = "";
-document.getElementById("message").value = "";
-}
-</script>
 
 </body>
-</html> 
+</html>
